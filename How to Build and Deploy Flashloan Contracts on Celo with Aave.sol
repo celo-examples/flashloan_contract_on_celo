@@ -14,7 +14,8 @@ import "./Ownable.sol";
 contract MyV2FlashLoan is FlashLoanReceiverBase, Ownable {
     using SafeMath for uint256;
 
-    constructor(ILendingPoolAddressesProvider _addressProvider) FlashLoanReceiverBase(_addressProvider) {
+    constructor(ILendingPoolAddressesProvider _addressProvider) FlashLoanReceiverBase(_addressProvider) {}
+    
         function myFlashLoanCall(address _tokenAddress) public onlyOwner {
         address receiverAddress = address(this);
 
@@ -42,7 +43,8 @@ contract MyV2FlashLoan is FlashLoanReceiverBase, Ownable {
             referralCode
         );
     }
-}
+
+
     function executeOperation(
         address[] calldata assets,
         uint256[] calldata amounts,
@@ -73,7 +75,4 @@ contract MyV2FlashLoan is FlashLoanReceiverBase, Ownable {
 
         return true;
     }
-
-    
-    
-    }
+}
